@@ -11,14 +11,21 @@ const routes = [
     children: [
       {
         path: '/',
+        name: 'Login',
         component: () => import('../views/auth/Login')
       },
       {
         path: '/register',
+        name: 'Register',
         component: () => import('../views/auth/Register')
       },
     ]
   },
+  {
+    path: '/guarded-route',
+    name: 'Guarded Route',
+    component: () => import('../views/GuardedView.vue'),
+  }
 
 ]
 
