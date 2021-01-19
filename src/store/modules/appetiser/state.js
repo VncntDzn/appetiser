@@ -3,7 +3,9 @@ import mutations from './mutations';
 import getters from './getters';
 
 const state = {
-    accounts: [],
+    status: '',
+    token: null,
+    user: null,
 }
 
 export default {

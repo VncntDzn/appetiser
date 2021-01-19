@@ -63,13 +63,24 @@
 				</p>
 			</v-row>
 		</v-form>
+
+		<v-dialog v-model="showDialog" max-width="600">
+			<v-card>
+				<v-card-title class="headline grey lighten-3"
+					>Read me!</v-card-title
+				>
+				<v-card-title class="px-2">{{ statusGetter }}</v-card-title>
+			</v-card>
+		</v-dialog>
 	</v-container>
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
 	data() {
 		return {
+			showDialog: false,
 			showConfPass: false,
 			show: false,
 			email: null,
@@ -91,25 +102,23 @@ export default {
 			},
 		};
 	},
+	computed: {
+		...mapGetters("appt", ["statusGetter"]),
+	},
 	methods: {
-		/* 	...mapActions("appt", ["doRegister"]), */
+		...mapActions("appt", ["doRegister"]),
 		register() {
-			/* const payload = {
-				email: this.email,
-				full_name: this.fullName,
-				password: this.password,
-				password_confirmation: this.confirmPassword,
-			}; */
 			// register
 			let formData = new FormData();
-			formData.append("email", "workvpdizon@gmail.com");
-			formData.append("first_name", "Vinceeeeent");
-			formData.append("last_name", "Dizon");
+			formData.append("email", "asd@gmail.com");
+			formData.append("first_name", "asd");
+			formData.append("last_name", "asd");
 			formData.append("password", "1234567890");
 			formData.append("password_confirmation", "1234567890");
-			console.log(formData.get("email"));
 
-			/* this.doRegister(payload); */
+			this.doRegister(formData);
+			this.showDialog = !this.showDialog;
+			// if success then do setTimeout for 3 seconds then router.push
 		},
 	},
 };
