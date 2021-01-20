@@ -71,8 +71,18 @@ const doVerification = async ({ commit }, payload) => {
     }
 }
 
+const doLogout = ({ commit }) => {
+    return new Promise((resolve) => {
+        commit('LOGOUT')
+        localStorage.removeItem('token')
+        delete axios.defaults.headers.common['Authorization']
+        resolve()
+    })
+};
+
 export default {
     doRegister,
     doLogin,
-    doVerification
+    doVerification,
+    doLogout
 }

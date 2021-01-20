@@ -12,11 +12,18 @@ const AUTH_SUCCESS = (state, { token, user }) => {
 const AUTH_FAILED = (state, err) => {
     state.status = err;
 
-}
+};
+const LOGOUT = (state) => {
+    state.status = '';
+    state.token = '';
+    state.user = '';
+    state.emailVerified = false;
+};
 
 
 export default {
     AUTH_REQUEST,
     AUTH_SUCCESS,
-    AUTH_FAILED
+    AUTH_FAILED,
+    LOGOUT
 }
