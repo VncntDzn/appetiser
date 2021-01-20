@@ -112,7 +112,7 @@ export default {
 			// register
 			let formData = new FormData();
 			formData.append("email", this.email);
-			formData.append("first_name", this.fullName);
+			formData.append("full_name", this.fullName);
 			formData.append("password", this.password);
 			formData.append("password_confirmation", this.confirmPassword);
 

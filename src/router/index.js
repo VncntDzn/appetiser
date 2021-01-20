@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import store from '@/store/index';
 Vue.use(VueRouter)
 
 const routes = [
@@ -31,6 +31,10 @@ const routes = [
     path: '/guarded-route',
     name: 'Guarded Route',
     component: () => import('../views/GuardedView.vue'),
+    meta: {
+      requiresAuth: true,
+
+    },
   },
   {
     path: '*',
@@ -46,5 +50,23 @@ const router = new VueRouter({
 });
 
 /* Allow only users who are email verified */
+router.beforeEach((to, from, next) => {
+  // Checks if routes requires Auth 
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    //check if the current user's email is verified 
+    if (store.getters['appt/emailGetter'] === true) {
+      next();
+      return
+    }
+    next({
+      path: '/',
+      query: {
+        redirect: to.fullPath
+      }
+    })
+  } else {
+    next()
+  }
+})
 
 export default router

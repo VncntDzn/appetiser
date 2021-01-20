@@ -6,6 +6,7 @@ const state = {
     status: '',
     token: null,
     user: null,
+    emailVerified: false
 }
 
 export default {

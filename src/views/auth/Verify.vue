@@ -1,7 +1,5 @@
 <template>
 	<v-container style="height: 100vh; padding-top: 10vh">
-		{{ tokenGetter }}
-
 		<v-card
 			class="d-flex justify-center flex-wrap flex-sm-row flex-sm-column px-6 py-6"
 			shaped
@@ -61,7 +59,7 @@ export default {
 		};
 	},
 	computed: {
-		...mapGetters("appt", ["statusGetter", "tokenGetter"]),
+		...mapGetters("appt", ["statusGetter", "tokenGetter", "userGetter"]),
 	},
 	methods: {
 		...mapActions("appt", ["doVerification"]),
@@ -85,16 +83,4 @@ export default {
 		},
 	},
 };
-</script>
-
-<style lang="scss" scoped>
-/* @media only screen and(min-width:768px) {
-	.sample {
-		display: flex;
-		align-self: center;
-		align-items: center;
-		width: 50vw;
-		border: 3px solid red;
-	}
-} */
-</style>
+</script> 
