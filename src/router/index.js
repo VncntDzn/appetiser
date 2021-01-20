@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+
     component: () => import('../views/auth/Home.vue'),
     children: [
       {
@@ -22,9 +22,20 @@ const routes = [
     ]
   },
   {
+    path: '/verification',
+    name: 'Verify',
+    component: () => import('../views/auth/Verify.vue'),
+  },
+
+  {
     path: '/guarded-route',
     name: 'Guarded Route',
     component: () => import('../views/GuardedView.vue'),
+  },
+  {
+    path: '*',
+    name: "NotFound",
+    component: () => import('../views/NotFound')
   }
 
 ]

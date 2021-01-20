@@ -69,7 +69,7 @@
 				<v-card-title class="headline grey lighten-3"
 					>Read me!</v-card-title
 				>
-				<v-card-title class="px-2">{{ statusGetter }}</v-card-title>
+				<v-card-title class="px-2">{{ statusGetter }} </v-card-title>
 			</v-card>
 		</v-dialog>
 	</v-container>
@@ -103,22 +103,30 @@ export default {
 		};
 	},
 	computed: {
-		...mapGetters("appt", ["statusGetter"]),
+		...mapGetters("appt", ["statusGetter", "tokenGetter"]),
 	},
 	methods: {
 		...mapActions("appt", ["doRegister"]),
 		register() {
 			// register
 			let formData = new FormData();
-			formData.append("email", "asd@gmail.com");
-			formData.append("first_name", "asd");
-			formData.append("last_name", "asd");
-			formData.append("password", "1234567890");
-			formData.append("password_confirmation", "1234567890");
+			formData.append("email", this.email);
+			formData.append("first_name", this.fullName);
+			formData.append("password", this.password);
+			formData.append("password_confirmation", this.confirmPassword);
 
 			this.doRegister(formData);
 			this.showDialog = !this.showDialog;
-			// if success then do setTimeout for 3 seconds then router.push
+			// if success then do setTimeout for 3 seconds then router.push ('verify')
+
+			setTimeout(() => {
+				if (this.statusGetter === "Success!") {
+					this.$router.push("/verification");
+					console.log(this.tokenGetter);
+				} else {
+					console.log("Failed to register");
+				}
+			}, 2000);
 		},
 	},
 };

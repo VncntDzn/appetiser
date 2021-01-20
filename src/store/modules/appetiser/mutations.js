@@ -3,8 +3,8 @@ const AUTH_REQUEST = (state) => {
 };
 const AUTH_SUCCESS = (state, token, user) => {
     state.status = 'Success!'
-    state.token = token
-    state.user = user
+    state.token = token;
+    state.user = user;
 };
 const AUTH_FAILED = (state, err) => {
     state.status = err;

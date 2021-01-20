@@ -6,9 +6,10 @@ const doRegister = async ({ commit }, payload) => {
         commit('AUTH_REQUEST');
         axios.post('https://api.baseplate.appetiserdev.tech/api/v1/auth/register', payload)
             .then(res => {
-                const token = res.data.access_token;
-                const user = res.data.user;
+                const token = res.data.data.access_token;
+                const user = res.data.data.user;
                 localStorage.setItem('token', token);
+
                 // Add the following line:
                 axios.defaults.headers.common['Authorization'] = token;
                 commit('AUTH_SUCCESS', token, user)
@@ -23,6 +24,28 @@ const doRegister = async ({ commit }, payload) => {
 
 };
 
+const doVerification = async ({ commit }, payload) => {
+    try {
+        commit('AUTH_REQUEST')
+
+        const response = await axios.post('https://api.baseplate.appetiserdev.tech/api/v1/auth/verification/verify', {
+            "token": payload.token,
+            "via": "email"
+        }, {
+            headers: {
+                Authorization: `Bearer ${payload.accessToken}`
+            },
+        });
+
+        console.log(response)
+        commit('AUTH_SUCCESS', response.data)
+    } catch (e) {
+        console.log(e);
+        commit('AUTH_FAILED', e)
+    }
+}
+
 export default {
-    doRegister
+    doRegister,
+    doVerification
 }
