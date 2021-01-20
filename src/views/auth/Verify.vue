@@ -8,25 +8,32 @@
 			elevation="4"
 		>
 			<VerificationLogo class="d-flex align-self-center" />
-			<h1>Email Verification</h1>
-			<h4>We sent an email to this email: <br /></h4>
-			<h4>SAMPLE EMAIL</h4>
-			<v-text-field
-				label="Enter token"
-				autofocus
-				v-model="token"
-				filled
-				color="orange"
-			/>
-			<p>Didn't receive the token? Resend Token</p>
-			<v-btn
-				class="white--text"
-				large
-				color="orange"
-				elevation="3"
-				@click="verify"
-				>Verifiy & Proceed</v-btn
+
+			<v-main
+				class="d-flex align-self-center justify-center flex-wrap"
+				style="width: 50vw"
 			>
+				<h1>Email Verification</h1>
+
+				<v-text-field
+					label="Enter token"
+					autofocus
+					v-model="token"
+					filled
+					color="orange"
+				/>
+				<p>Didn't receive the token? Resend Token</p>
+				<v-card-actions class="d-flex justify-center">
+					<v-btn
+						class="white--text"
+						large
+						color="orange"
+						elevation="3"
+						@click="verify"
+						>Verifiy & Proceed</v-btn
+					>
+				</v-card-actions>
+			</v-main>
 		</v-card>
 		<v-dialog v-model="showDialog" max-width="600">
 			<v-card>
@@ -81,4 +88,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* @media only screen and(min-width:768px) {
+	.sample {
+		display: flex;
+		align-self: center;
+		align-items: center;
+		width: 50vw;
+		border: 3px solid red;
+	}
+} */
 </style>

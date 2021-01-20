@@ -43,6 +43,8 @@ const routes = [
 const router = new VueRouter({
   routes,
   mode: 'history'
-})
+});
+
+/* Allow only users who are email verified */
 
 export default router

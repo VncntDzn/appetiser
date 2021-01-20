@@ -55,7 +55,8 @@
 					@click="register()"
 					>Register</v-btn
 				>
-				<p class="py-3 px-2">
+
+				<p class="py-3 px-2 ml-auto">
 					Already have an account?
 					<router-link exact to="/" style="color: orange"
 						>Sign in</router-link

@@ -1,8 +1,7 @@
 <template>
 	<v-container fluid class="container px-10 py-10">
-		<h1>Appetiser Task</h1>
-		<h1>Welcome Back!</h1>
-		<h3>Below is the form to use for login.</h3>
+		<h1 class="my-5 py-0">Appetiser Task</h1>
+
 		<v-form widt>
 			<v-text-field
 				outlined
