@@ -1,6 +1,9 @@
 <template>
 	<v-container fluid>
 		<v-row>
+			<div class="moon">
+				<Moon />
+			</div>
 			<v-col
 				class="d-flex justify-center align-center"
 				style="height: 100vh"
@@ -20,12 +23,19 @@
 
 <script>
 import ComputerLogo from "./svg/ComputerLogo";
+import Moon from "./svg/Moon";
 export default {
 	components: {
 		ComputerLogo,
+		Moon,
 	},
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.moon {
+	position: absolute;
+	right: 4vw;
+	top: 5vh;
+}
 </style>
