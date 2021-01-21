@@ -12,9 +12,9 @@
 
 		<v-container
 			fluid
-			class="d-flex justify-center flex-wrap flex-sm-row flex-sm-column ma-10 pa-10"
+			class="d-flex justify-center flex-wrap flex-sm-row flex-sm-column my-10 pa-10"
 		>
-			<h2 class="d-flex align-self-center">Welcome to Guarded Route!</h2>
+			<h3 class="d-flex align-self-center">Welcome to Guarded Route!</h3>
 			<Welcome class="d-flex align-self-center" />
 		</v-container>
 	</div>
