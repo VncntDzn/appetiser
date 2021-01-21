@@ -9,7 +9,6 @@ const doRegister = async ({ commit }, payload) => {
                 const token = res.data.data.access_token;
                 const user = res.data.data.user;
                 localStorage.setItem('token', token);
-
                 // Add the following line:
                 axios.defaults.headers.common['Authorization'] = token;
                 commit('AUTH_SUCCESS', token, user)
@@ -35,7 +34,6 @@ const doLogin = async ({ commit }, payload) => {
                 const user = res.data.data.user;
                 localStorage.setItem('token', token);
 
-                /*  console.log(user.email_verified) */
                 // Add the following line:
                 axios.defaults.headers.common['Authorization'] = token;
                 commit('AUTH_SUCCESS', { token, user })
@@ -63,10 +61,12 @@ const doVerification = async ({ commit }, payload) => {
             },
         });
 
-        const user = response.data.data;
-        commit('AUTH_SUCCESS', user)
+        const email = response.data.data.email_verified;
+        console.log(email)
+        commit('AUTH_SUCCESS', email)
+
     } catch (e) {
-        console.log(e);
+
         commit('AUTH_FAILED', e)
     }
 }

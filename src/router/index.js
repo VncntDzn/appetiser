@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
   // Checks if routes requires Auth 
   if (to.matched.some(record => record.meta.requiresAuth)) {
     //check if the current user's email is verified 
-    if (store.getters['appt/emailGetter'] === true) {
+    if (store.getters['appt/statusGetter'] === 'Success!') {
       next();
       return
     }

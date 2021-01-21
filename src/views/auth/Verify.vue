@@ -1,5 +1,6 @@
 <template>
 	<v-container style="height: 100vh; padding-top: 10vh">
+		{{ tokenGetter }}
 		<v-card
 			class="d-flex justify-center flex-wrap flex-sm-row flex-sm-column px-6 py-6"
 			shaped
@@ -20,7 +21,7 @@
 					filled
 					color="orange"
 				/>
-				<p>Didn't receive the token? Resend Token</p>
+
 				<v-card-actions class="d-flex justify-center">
 					<v-btn
 						class="white--text"

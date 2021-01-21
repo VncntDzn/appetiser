@@ -14,7 +14,9 @@
 				outlined
 				label="Enter your Password"
 				color="orange"
-				type="password"
+				:type="show ? 'text' : 'password'"
+				:append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+				@click:append="show = !show"
 				v-model="password"
 			/>
 
@@ -53,6 +55,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
 	data() {
 		return {
+			show: false,
 			showDialog: false,
 			email: null,
 			password: null,
