@@ -1,4 +1,4 @@
-### appetiser
+# Appetiser
 
 ## Project setup
 ```
